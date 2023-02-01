@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('trains', function (Blueprint $table) {
-            $table -> id();
-            $table -> integer('capacity');
-            $table-> string('code', 8)-> unique();
-            $table -> boolean('cancelled');
-            $table -> string('type', 32)->nullable(false);
+        Schema::create('travels', function (Blueprint $table) {
+            $table->id();
+            $table->integer('price');
+            $table->boolean('premium');
+            $table->string('region', 32);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trains');
+        Schema::dropIfExists('travels');
     }
 };
